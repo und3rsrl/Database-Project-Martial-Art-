@@ -26,11 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    DatabaseManager.cpp
+    DatabaseManager.cpp \
+    Player.cpp \
+    PlayerDao.cpp
 
 HEADERS += \
         mainwindow.h \
-    DatabaseManager.h
+    DatabaseManager.h \
+    Player.h \
+    PlayerDao.h
 
 FORMS += \
         mainwindow.ui
