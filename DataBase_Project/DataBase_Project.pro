@@ -28,13 +28,15 @@ SOURCES += \
         mainwindow.cpp \
     DatabaseManager.cpp \
     Player.cpp \
-    PlayerDao.cpp
+    PlayerDao.cpp \
+    PlayerModel.cpp
 
 HEADERS += \
         mainwindow.h \
     DatabaseManager.h \
     Player.h \
-    PlayerDao.h
+    PlayerDao.h \
+    PlayerModel.h
 
 FORMS += \
         mainwindow.ui

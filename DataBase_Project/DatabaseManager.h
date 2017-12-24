@@ -1,6 +1,8 @@
 #ifndef DATABASEMANAGER_H
 #define DATABASEMANAGER_H
 
+#include "PlayerDao.h"
+
 #include <memory>
 #include <QString>
 #include <QSettings>
@@ -10,7 +12,7 @@
 class QSqlQuerry;
 class QSqlDatabase;
 
-const QString DATABASE_CONFIG_FILE_PATH = QDir::currentPath() + "release/confing.conf";
+const QString DATABASE_CONFIG_FILE_PATH = QDir::currentPath() + "/debug/confing.conf";
 
 class DatabaseManager
 {
@@ -24,6 +26,9 @@ protected:
 
 private:
     std::unique_ptr<QSqlDatabase> mDatabase;
+
+public:
+    const PlayerDao mPlayerDao;
 };
 
 #endif // DATABASEMANAGER_H

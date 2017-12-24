@@ -9,12 +9,14 @@ DatabaseManager&DatabaseManager::instance()
 }
 
 DatabaseManager::DatabaseManager(const QString& path) :
-    mDatabase(new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL")))
+    mDatabase(new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"))),
+    mPlayerDao(*mDatabase)
 {
     qDebug() << path;
 
     QSettings settings(path, QSettings::IniFormat);
 
+    qDebug() << settings.value("DATABASENAME").toString();
     mDatabase->setDatabaseName(settings.value("DATABASENAME").toString());
     mDatabase->setHostName(settings.value("HOSTNAME").toString());
     mDatabase->setUserName(settings.value("USERNAME").toString());
@@ -30,6 +32,8 @@ DatabaseManager::DatabaseManager(const QString& path) :
     {
         qDebug() << "Database connection: Not Connected";
     }
+
+    mPlayerDao.init();
 }
 
 DatabaseManager::~DatabaseManager()
