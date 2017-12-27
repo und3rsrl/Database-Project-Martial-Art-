@@ -1,3 +1,4 @@
+/*
 #include "PlayerModel.h"
 
 PlayerModel::PlayerModel(QObject* parent = 0):
@@ -17,3 +18,4 @@ QModelIndex PlayerModel::AddPlayer(const Player &player)
     endInsertRows();
     return index(rowIndex, 0);
 }
+*/

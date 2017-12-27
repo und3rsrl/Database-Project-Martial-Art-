@@ -1,6 +1,6 @@
 #ifndef PLAYERMODEL_H
 #define PLAYERMODEL_H
-
+/*
 #include <QAbstractListModel>
 #include <vector>
 #include <memory>
@@ -21,3 +21,4 @@ private:
 };
 
 #endif // PLAYERMODEL_H
+*/

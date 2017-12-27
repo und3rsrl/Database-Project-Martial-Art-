@@ -29,14 +29,19 @@ SOURCES += \
     DatabaseManager.cpp \
     Player.cpp \
     PlayerDao.cpp \
-    PlayerModel.cpp
+    PlayerModel.cpp \
+    additemdialog.cpp \
+    additemdialog.cpp
 
 HEADERS += \
         mainwindow.h \
     DatabaseManager.h \
     Player.h \
     PlayerDao.h \
-    PlayerModel.h
+    PlayerModel.h \
+    additemdialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    additemdialog.ui
+CONFIG += c++11
