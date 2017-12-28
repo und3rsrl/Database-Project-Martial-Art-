@@ -1,6 +1,6 @@
 #include "Category.h"
 
-category::category(int identifier, int minWeight, int maxWeight, int minAge, int maxAge)
+Category::Category(int identifier, int minWeight, int maxWeight, int minAge, int maxAge)
 {
     mIdentifier = identifier;
     mMinWeight = minWeight;
@@ -9,27 +9,27 @@ category::category(int identifier, int minWeight, int maxWeight, int minAge, int
     mMaxAge = maxAge;
 }
 
-int category::GetIdentifier()
+int Category::GetIdentifier()
 {
     return mIdentifier;
 }
 
-int category::GetMinWeight()
+int Category::GetMinWeight()
 {
     return mMinWeight;
 }
 
-int category::GetMaxWeight()
+int Category::GetMaxWeight()
 {
     return mMaxWeight;
 }
 
-int category::GetMinAge()
+int Category::GetMinAge()
 {
-    return minAge;
+    return mMinAge;
 }
 
-int category::GetMaxAge()
+int Category::GetMaxAge()
 {
-    return maxAge;
+    return mMaxAge;
 }

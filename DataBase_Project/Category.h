@@ -2,10 +2,10 @@
 #define CATEGORY_H
 
 
-class category
+class Category
 {
 public:
-    category(int identifier, int minWeight, int maxWeight, int minAge, int maxAge);
+    Category(int identifier, int minWeight, int maxWeight, int minAge, int maxAge);
 
     int GetIdentifier();
     int GetMinWeight();

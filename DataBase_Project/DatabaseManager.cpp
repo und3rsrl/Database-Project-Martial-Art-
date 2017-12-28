@@ -10,7 +10,8 @@ DatabaseManager&DatabaseManager::instance()
 
 DatabaseManager::DatabaseManager(const QString& path) :
     mDatabase(new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"))),
-    mPlayerDao(*mDatabase)
+    mPlayerDao(*mDatabase),
+    mCategoryDao(*mDatabase)
 {
     qDebug() << path;
 
