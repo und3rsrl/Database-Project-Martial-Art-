@@ -1,7 +1,6 @@
 #ifndef PLAYERMODEL_H
 #define PLAYERMODEL_H
 
-#include <QMainWindow>
 #include <QStandardItemModel>
 #include <vector>
 #include <memory>
@@ -10,21 +9,17 @@
 #include "Player.h"
 #include "DatabaseManager.h"
 
-namespace Ui {
-class MainWindow;
-}
 
 class PlayerModel
 {
 public:
-    PlayerModel(Ui::MainWindow* ui);
+    PlayerModel();
 
     void LoadAll();
-private:
-    Ui::MainWindow *ui;
-    DatabaseManager& mDatabaseManager;
-    std::vector<Player> mPlayers;
     QStandardItemModel m_model;
+private:
+    DatabaseManager& mDatabaseManager;
+    std::vector<Player> mPlayers; 
 };
 
 #endif // PLAYERMODEL_H

@@ -11,7 +11,7 @@ public:
     int GetIdentifier();
     int GetWeight();
     int GetAge();
-    int GetTeam();
+    QString GetTeam();
     int GetScore();
 
 private:

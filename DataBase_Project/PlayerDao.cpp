@@ -77,8 +77,10 @@ void PlayerDao::RemovePlayer(int identifier)
 
 vector<Player> PlayerDao::Players() const
 {
-    QSqlQuery query("SELECT * FROM Players", mDatabase);
-    query.exec();
+    QSqlQuery query(mDatabase);
+    query.prepare("SELECT * FROM Players");
+    qDebug() << query.exec();
+
     vector<Player> playerList;
     while(query.next()) {
 

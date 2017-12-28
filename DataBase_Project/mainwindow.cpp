@@ -8,10 +8,10 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    mPlayerModel(ui)
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->playersList->setModel(&mPlayerModel.m_model);
     mAddItemDialog = std::make_unique<AddItemDialog>(this);
     mViews = std::make_unique<QActionGroup>(this);
 
@@ -75,7 +75,7 @@ void MainWindow::onRefresh()
     case 0:
         break;
     case 1:
-       //mPlayerModel.LoadAll();
+       mPlayerModel.LoadAll();
         break;
     }
 }

@@ -31,10 +31,10 @@ int Player::GetAge()
 
 int Player::GetWeight()
 {
-    return mAge;
+    return mWeight;
 }
 
-int Player::GetTeam()
+QString Player::GetTeam()
 {
-    return mAge;
+    return mTeam;
 }
