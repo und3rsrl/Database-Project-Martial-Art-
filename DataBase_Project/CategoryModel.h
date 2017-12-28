@@ -1,5 +1,5 @@
-#ifndef PLAYERMODEL_H
-#define PLAYERMODEL_H
+#ifndef CATEGORYMODEL_H
+#define CATEGORYMODEL_H
 
 #include <QMainWindow>
 #include <QStandardItemModel>
@@ -7,24 +7,25 @@
 #include <memory>
 #include <iterator>
 
-#include "Player.h"
+#include "Category.h"
 #include "DatabaseManager.h"
 
 namespace Ui {
 class MainWindow;
 }
 
-class PlayerModel
+class CategoryModel
 {
 public:
-    PlayerModel();
+    CategoryModel();
 
     void LoadAll();
+
 private:
     Ui::MainWindow *ui;
     DatabaseManager& mDatabaseManager;
-    std::vector<Player> mPlayers;
+    std::vector<Category> mCategories;
     QStandardItemModel m_model;
 };
 
-#endif // PLAYERMODEL_H
+#endif // CATEGORYMODEL_H

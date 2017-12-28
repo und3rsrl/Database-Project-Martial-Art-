@@ -31,7 +31,10 @@ SOURCES += \
     PlayerDao.cpp \
     additemdialog.cpp \
     additemdialog.cpp \
-    PlayerModel.cpp
+    PlayerModel.cpp \
+    Category.cpp \
+    CategoryDao.cpp \
+    CategoryModel.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +42,10 @@ HEADERS += \
     Player.h \
     PlayerDao.h \
     additemdialog.h \
-    PlayerModel.h
+    PlayerModel.h \
+    Category.h \
+    CategoryDao.h \
+    CategoryModel.h
 
 FORMS += \
         mainwindow.ui \
