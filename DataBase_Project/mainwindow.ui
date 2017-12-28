@@ -14,35 +14,138 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>841</width>
-      <height>501</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QListView" name="playersList"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="addButton">
-       <property name="text">
-        <string>Add Player</string>
-       </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="clasamentPage">
+       <widget class="QListView" name="clasamentList">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>51</y>
+          <width>831</width>
+          <height>441</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="clasamentLabel">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>-220</y>
+          <width>181</width>
+          <height>498</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Clasament</string>
+        </property>
+       </widget>
       </widget>
-     </item>
-     <item alignment="Qt::AlignVCenter">
-      <widget class="QPushButton" name="removeButton">
-       <property name="text">
-        <string>Remove Player</string>
-       </property>
+      <widget class="QWidget" name="addPlayerPage">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="adaugareplayerlabel">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>                                                  Adaugare / Stergere Playeri</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListView" name="playersList"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="addButton">
+          <property name="text">
+           <string>Add Player</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="removeButton">
+          <property name="text">
+           <string>Remove Player</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
-     </item>
-    </layout>
-   </widget>
+      <widget class="QWidget" name="etapePage">
+       <widget class="QListView" name="etapeList">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>60</y>
+          <width>861</width>
+          <height>411</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>10</y>
+          <width>61</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Etape</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="categoriiPage">
+       <widget class="QListView" name="categoriiList">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>841</width>
+          <height>431</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>10</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Categorii</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -57,14 +160,15 @@
     <property name="title">
      <string>Edit</string>
     </property>
-    <addaction name="actionPlayer"/>
    </widget>
-   <widget class="QMenu" name="menuClasament">
+   <widget class="QMenu" name="menuView">
     <property name="title">
      <string>View</string>
     </property>
-    <addaction name="actionClasament_2"/>
-    <addaction name="actionEtape_2"/>
+    <addaction name="actionViewClasament"/>
+    <addaction name="actionViewEtape"/>
+    <addaction name="actionViewAddPlayers"/>
+    <addaction name="actionViewCategorii"/>
    </widget>
    <widget class="QMenu" name="menuSimulator">
     <property name="title">
@@ -72,9 +176,16 @@
     </property>
     <addaction name="actionSimulare_lupte"/>
    </widget>
+   <widget class="QMenu" name="menuActions">
+    <property name="title">
+     <string>Actions</string>
+    </property>
+    <addaction name="actionRefreshDatabase"/>
+   </widget>
    <addaction name="menuAdd"/>
-   <addaction name="menuClasament"/>
+   <addaction name="menuView"/>
    <addaction name="menuSimulator"/>
+   <addaction name="menuActions"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -85,7 +196,7 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionPlayer">
+  <action name="actionAddPlayer">
    <property name="text">
     <string>Add/Remove Player</string>
    </property>
@@ -110,12 +221,12 @@
     <string>Simulator</string>
    </property>
   </action>
-  <action name="actionClasament_2">
+  <action name="actionViewClasament">
    <property name="text">
     <string>Clasament</string>
    </property>
   </action>
-  <action name="actionEtape_2">
+  <action name="actionViewEtape">
    <property name="text">
     <string>Etape</string>
    </property>
@@ -123,6 +234,21 @@
   <action name="actionSimulare_lupte">
    <property name="text">
     <string>Simulare lupte</string>
+   </property>
+  </action>
+  <action name="actionRefreshDatabase">
+   <property name="text">
+    <string>RefreshDatabase</string>
+   </property>
+  </action>
+  <action name="actionViewAddPlayers">
+   <property name="text">
+    <string>Add Players</string>
+   </property>
+  </action>
+  <action name="actionViewCategorii">
+   <property name="text">
+    <string>Categorii</string>
    </property>
   </action>
  </widget>

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <memory>
+#include <QActionGroup>
 
 
 
@@ -25,10 +26,12 @@ public:
 
 private slots:
     void onAddPlayer();
+    void onViewTriggered(QAction *action);
 
 private:
     Ui::MainWindow *ui;
     std::unique_ptr<AddItemDialog> mAddItemDialog;
+    std::unique_ptr<QActionGroup> mViews;
 };
 
 #endif // MAINWINDOW_H
