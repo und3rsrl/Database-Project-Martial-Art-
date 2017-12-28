@@ -8,7 +8,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    mPlayerModel(ui)
 {
     ui->setupUi(this);
     mAddItemDialog = std::make_unique<AddItemDialog>(this);
@@ -19,12 +20,9 @@ MainWindow::MainWindow(QWidget *parent) :
     mViews->addAction(ui->actionViewClasament);
     mViews->addAction(ui->actionViewEtape);
 
-
-
     connect(ui->addButton, &QPushButton::released, this, &MainWindow::onAddPlayer);
+    connect(ui->actionRefreshDatabase, &QAction::triggered, this, &MainWindow::onRefresh);
     connect(mViews.get(), &QActionGroup::triggered, this, &MainWindow::onViewTriggered);
-
-
 }
 
 MainWindow::~MainWindow()
@@ -68,4 +66,16 @@ void MainWindow::onViewTriggered(QAction *action)
         ui->stackedWidget->setCurrentIndex(2);
     }
 
+}
+
+void MainWindow::onRefresh()
+{
+    switch(ui->stackedWidget->currentIndex())
+    {
+    case 0:
+        break;
+    case 1:
+       //mPlayerModel.LoadAll();
+        break;
+    }
 }

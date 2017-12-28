@@ -1,8 +1,10 @@
 #include "PlayerModel.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
-PlayerModel::PlayerModel() :
+PlayerModel::PlayerModel(Ui::MainWindow* ui) :
+    ui(ui),
     mDatabaseManager(DatabaseManager::instance()),
     mPlayers(mDatabaseManager.mPlayerDao.Players())
 {
@@ -10,7 +12,10 @@ PlayerModel::PlayerModel() :
     QStringList headerLabels;
     headerLabels << "Id" << "Score" << "Team" << "Age" << "Weight";
     m_model.setHorizontalHeaderLabels(headerLabels);
-    ui->playersList->setModel(&m_model);
+    //ui->playersList->setModel(&m_model);
+
+    if(ui == nullptr)
+        qDebug() << "true;";
 }
 
 void PlayerModel::LoadAll()

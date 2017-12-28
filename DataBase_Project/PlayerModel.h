@@ -17,7 +17,7 @@ class MainWindow;
 class PlayerModel
 {
 public:
-    PlayerModel();
+    PlayerModel(Ui::MainWindow* ui);
 
     void LoadAll();
 private:
