@@ -14,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     mAddItemDialog = std::make_unique<AddItemDialog>(this);
-
     connect(ui->addButton, &QPushButton::released, this, &MainWindow::onAddPlayer);
 
 
@@ -33,6 +32,7 @@ void MainWindow::onAddPlayer()
     {
         std::unique_ptr<Player> newPlayer = mAddItemDialog->createPlayerFromInput();
         qDebug() << newPlayer->GetIdentifier();
+        DatabaseManager::instance().mPlayerDao.AddPlayer(*newPlayer);
     }
 
 

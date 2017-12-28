@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QVariant>
+#include <QDebug>
 
 using namespace std;
 
@@ -21,22 +22,24 @@ void PlayerDao::init() const
     {
         QSqlQuery query(mDatabase);
         query.prepare("CREATE TABLE Players ( Id int PRIMARY KEY, Score int, Team text, Age int, Weight int);");
-        query.exec();
+        if(query.exec())
+        {
+            qDebug() << "Creat";
+        }
+        else
+        {
+            qDebug() << "Necreat";
+        }
     }
 }
 
 void PlayerDao::AddPlayer(Player& player)
 {
     QSqlQuery query(mDatabase);
-    query.prepare("UPDATE"
+    query.prepare("INSERT INTO"
                   "     Players"
-                  "SET "
-                  "     Score = (:score),"
-                  "     Team = (:team),"
-                  "     Age = (:age),"
-                  "     Weight = (:weight)"
-                  "WHERE "
-                  "     Id = (:id)");
+                  "(id, Score, Team, Age, Weight)"
+                  "VALUES (:id, :score, :team, :age, :weight)");
         query.bindValue(":id", player.GetIdentifier());
         query.bindValue(":score", player.GetScore());
         query.bindValue(":team", player.GetTeam());

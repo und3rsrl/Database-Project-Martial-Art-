@@ -12,7 +12,7 @@
 class QSqlQuerry;
 class QSqlDatabase;
 
-const QString DATABASE_CONFIG_FILE_PATH = QDir::currentPath() + "/debug/confing.conf";
+const QString DATABASE_CONFIG_FILE_PATH = QDir::currentPath() + "/debug/config.conf";
 
 class DatabaseManager
 {
@@ -28,7 +28,7 @@ private:
     std::unique_ptr<QSqlDatabase> mDatabase;
 
 public:
-    const PlayerDao mPlayerDao;
+    PlayerDao mPlayerDao;
 };
 
 #endif // DATABASEMANAGER_H

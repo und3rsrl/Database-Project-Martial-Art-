@@ -12,9 +12,11 @@ AddItemDialog::AddItemDialog(QWidget *parent) :
 std::unique_ptr<Player> AddItemDialog::createPlayerFromInput()
 {
 
-    return std::make_unique<Player>(ui->IDInput->text().toInt(), ui->TeamInput->text(),
-                                                            ui->ScoreInput->text().toInt(), ui->AgeInput->text().toInt(),
-                                                            ui->WeightInput->text().toInt());
+    return std::make_unique<Player>(ui->IDInput->text().toInt(),
+                                    ui->TeamInput->text(),
+                                    ui->ScoreInput->text().toInt(),
+                                    ui->AgeInput->text().toInt(),
+                                    ui->WeightInput->text().toInt());
 }
 
 void AddItemDialog::accept()
