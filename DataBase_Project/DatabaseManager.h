@@ -2,6 +2,7 @@
 #define DATABASEMANAGER_H
 
 #include "PlayerDao.h"
+#include "CategoryDao.h"
 
 #include <memory>
 #include <QString>
@@ -29,6 +30,7 @@ private:
 
 public:
     PlayerDao mPlayerDao;
+    CategoryDao mCategoryDao;
 };
 
 #endif // DATABASEMANAGER_H
