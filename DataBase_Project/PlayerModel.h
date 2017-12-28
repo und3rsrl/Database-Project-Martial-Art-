@@ -1,24 +1,30 @@
 #ifndef PLAYERMODEL_H
 #define PLAYERMODEL_H
-/*
-#include <QAbstractListModel>
+
+#include <QMainWindow>
+#include <QStandardItemModel>
 #include <vector>
-#include <memory>
+#include<memory>
+#include <iterator>
 
 #include "Player.h"
 #include "DatabaseManager.h"
 
+namespace Ui {
+class MainWindow;
+}
+
 class PlayerModel
 {
 public:
-    PlayerModel(QObject* parent = 0);
+    PlayerModel();
 
-    QModelIndex AddPlayer(const Player& player);
-
+    void LoadAll();
 private:
+    Ui::MainWindow *ui;
     DatabaseManager& mDatabaseManager;
-    std::unique_ptr<std::vector<std::unique_ptr<Player>>> mPlayers;
+    std::vector<Player> mPlayers;
+    QStandardItemModel m_model;
 };
 
 #endif // PLAYERMODEL_H
-*/

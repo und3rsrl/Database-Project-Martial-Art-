@@ -9,6 +9,7 @@ class Player;
 
 class PlayerDao
 {
+
 public:
     PlayerDao(QSqlDatabase& database);
     void init() const;
@@ -16,7 +17,7 @@ public:
     void AddPlayer(Player& player);
     void UpdatePlayer(Player& player);
     void RemovePlayer(int identifier);
-    std::unique_ptr<std::vector<std::unique_ptr<Player>>> Players() const;
+    std::vector<Player> Players() const;
 
 private:
     bool PlayerExist(int identifier);

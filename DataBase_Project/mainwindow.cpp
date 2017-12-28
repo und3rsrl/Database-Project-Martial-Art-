@@ -34,7 +34,4 @@ void MainWindow::onAddPlayer()
         qDebug() << newPlayer->GetIdentifier();
         DatabaseManager::instance().mPlayerDao.AddPlayer(*newPlayer);
     }
-
-
-
 }

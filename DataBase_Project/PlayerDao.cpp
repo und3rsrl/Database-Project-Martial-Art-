@@ -75,11 +75,11 @@ void PlayerDao::RemovePlayer(int identifier)
     query.exec();
 }
 
-unique_ptr<vector<unique_ptr<Player>>> PlayerDao::Players() const
+vector<Player> PlayerDao::Players() const
 {
     QSqlQuery query("SELECT * FROM Players", mDatabase);
     query.exec();
-    unique_ptr<vector<unique_ptr<Player>>> playerList(new vector<unique_ptr<Player>>());
+    vector<Player> playerList;
     while(query.next()) {
 
         int id = query.value("Id").toInt();
@@ -88,8 +88,10 @@ unique_ptr<vector<unique_ptr<Player>>> PlayerDao::Players() const
         int weight = query.value("Weight").toInt();
         int score = query.value("Score").toInt();
 
-        unique_ptr<Player> player(new Player(id, team, score, age, weight));
-        playerList->push_back(move(player));
+        Player player(id, team, score, age, weight);
+
+
+        playerList.push_back(player);
     }
 
     return playerList;
