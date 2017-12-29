@@ -35,6 +35,7 @@ DatabaseManager::DatabaseManager(const QString& path) :
     }
 
     mPlayerDao.init();
+    mCategoryDao.init();
 }
 
 DatabaseManager::~DatabaseManager()

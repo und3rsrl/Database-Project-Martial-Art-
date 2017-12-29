@@ -24,11 +24,11 @@ void CategoryDao::init() const
         query.prepare("CREATE TABLE Categories ( Id int PRIMARY KEY, MinWeight int, MaxWeight int, MinAge int, MaxAge int);");
         if(query.exec())
         {
-            qDebug() << "Creat";
+            qDebug() << "Creat categories table";
         }
         else
         {
-            qDebug() << "Necreat";
+            qDebug() << "Necreat categories table";
         }
     }
 }
@@ -45,7 +45,7 @@ void CategoryDao::AddCategory(Category& category)
         query.bindValue(":maxWeight", category.GetMaxWeight());
         query.bindValue(":minAge", category.GetMinAge());
         query.bindValue(":maxAge", category.GetMaxAge());
-        query.exec();
+        int x =query.exec();
 }
 
 void CategoryDao::RemoveCategory(int identifier)
@@ -61,9 +61,11 @@ void CategoryDao::RemoveCategory(int identifier)
 }
 
 vector<Category> CategoryDao::Categories() const
-{
-    QSqlQuery query("SELECT * FROM Categories", mDatabase);
+{  
+    QSqlQuery query(mDatabase);
+    query.prepare("SELECT * FROM Categories");
     query.exec();
+
     vector<Category> categoryList;
     while(query.next()) {
         int id = query.value("Id").toInt();

@@ -6,15 +6,13 @@ CategoryModel::CategoryModel() :
     mDatabaseManager(DatabaseManager::instance()),
     mCategories(mDatabaseManager.mCategoryDao.Categories())
 {
-    m_model.clear();
-    QStringList headerLabels;
-    headerLabels << "Id" << "MinWeight" << "MaxWeight" << "MinAge" << "MaxAge";
-    m_model.setHorizontalHeaderLabels(headerLabels);
-    ui->playersList->setModel(&m_model);
+    LoadAll();
 }
 
 void CategoryModel::LoadAll()
 {
+    SetupModel();
+
     mCategories = mDatabaseManager.mCategoryDao.Categories();
 
     for(Category category : mCategories)
@@ -23,4 +21,12 @@ void CategoryModel::LoadAll()
         row << new QStandardItem(category.GetIdentifier()) << new QStandardItem(category.GetMinWeight()) << new QStandardItem(category.GetMaxWeight())
             << new QStandardItem(category.GetMinAge()) << new QStandardItem(category.GetMaxAge());
     }
+}
+
+void CategoryModel::SetupModel()
+{
+    m_model.clear();
+    QStringList headerLabels;
+    headerLabels << "Id" << "MinWeight" << "MaxWeight" << "MinAge" << "MaxAge";
+    m_model.setHorizontalHeaderLabels(headerLabels);
 }

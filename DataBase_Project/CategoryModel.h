@@ -21,11 +21,15 @@ public:
 
     void LoadAll();
 
+    void SetupModel();
+
+
+    QStandardItemModel m_model;
 private:
     Ui::MainWindow *ui;
     DatabaseManager& mDatabaseManager;
     std::vector<Category> mCategories;
-    QStandardItemModel m_model;
+
 };
 
 #endif // CATEGORYMODEL_H

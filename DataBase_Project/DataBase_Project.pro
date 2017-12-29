@@ -35,7 +35,8 @@ SOURCES += \
     Category.cpp \
     CategoryDao.cpp \
     CategoryModel.cpp \
-    RankingModel.cpp
+    RankingModel.cpp \
+    addcategorydialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -47,9 +48,12 @@ HEADERS += \
     Category.h \
     CategoryDao.h \
     CategoryModel.h \
-    RankingModel.h
+    RankingModel.h \
+    addcategorydialog.h
 
 FORMS += \
         mainwindow.ui \
-    additemdialog.ui
+    additemdialog.ui \
+    addcategorydialog.ui \
+    addcategorydialog.ui
 CONFIG += c++11

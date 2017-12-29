@@ -3,12 +3,16 @@
 
 #include <QDialog>
 #include <memory>
-#include "Player.h"
+
+
+
 
 
 namespace Ui {
 class AddItemDialog;
 }
+
+class Player;
 
 class AddItemDialog : public QDialog
 {

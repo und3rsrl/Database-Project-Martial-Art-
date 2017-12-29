@@ -1,6 +1,7 @@
 #include "additemdialog.h"
 #include "ui_additemdialog.h"
 #include <qmessagebox.h>
+#include "Player.h"
 
 AddItemDialog::AddItemDialog(QWidget *parent) :
     QDialog(parent),
@@ -17,6 +18,7 @@ std::unique_ptr<Player> AddItemDialog::createPlayerFromInput()
                                     ui->ScoreInput->text().toInt(),
                                     ui->AgeInput->text().toInt(),
                                     ui->WeightInput->text().toInt());
+
 }
 
 void AddItemDialog::accept()

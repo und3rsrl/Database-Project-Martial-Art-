@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="clasamentPage">
        <widget class="QTableView" name="clasamentList">
@@ -68,7 +68,7 @@
          <widget class="QTableView" name="playersList"/>
         </item>
         <item>
-         <widget class="QPushButton" name="addButton">
+         <widget class="QPushButton" name="addPlayerButton">
           <property name="text">
            <string>Add Player</string>
           </property>
@@ -114,16 +114,6 @@
        </widget>
       </widget>
       <widget class="QWidget" name="categoriiPage">
-       <widget class="QListView" name="categoriiList">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>50</y>
-          <width>841</width>
-          <height>431</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_2">
         <property name="geometry">
          <rect>
@@ -142,6 +132,35 @@
          <string>Categorii</string>
         </property>
        </widget>
+       <widget class="QWidget" name="">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>841</width>
+          <height>441</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QTableView" name="categoryView"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="addCategoryButton">
+           <property name="text">
+            <string>Add Category</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="removeCategoryButton">
+           <property name="text">
+            <string>Remove Category</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -153,7 +172,7 @@
      <x>0</x>
      <y>0</y>
      <width>881</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAdd">
