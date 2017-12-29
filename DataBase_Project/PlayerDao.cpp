@@ -66,20 +66,16 @@ void PlayerDao::UpdatePlayer(Player& player)
 void PlayerDao::RemovePlayer(int identifier)
 {
     QSqlQuery query(mDatabase);
-    query.prepare("DELETE"
-                  "FROM"
-                  "     Players "
-                  "WHERE "
-                  "     id = (:id)");
+    query.prepare("DELETE FROM Players WHERE Id = (:id)");
     query.bindValue(":id", identifier);
-    query.exec();
+    qDebug() << query.exec();
 }
 
 vector<Player> PlayerDao::Players() const
 {
     QSqlQuery query(mDatabase);
     query.prepare("SELECT * FROM Players");
-    qDebug() << query.exec();
+    query.exec();
 
     vector<Player> playerList;
     while(query.next()) {

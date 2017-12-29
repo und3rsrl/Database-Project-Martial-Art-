@@ -17,7 +17,10 @@ public:
 
     void LoadAll();
     QStandardItemModel m_model;
+
 private:
+    void SetupModel();
+
     DatabaseManager& mDatabaseManager;
     std::vector<Player> mPlayers; 
 };

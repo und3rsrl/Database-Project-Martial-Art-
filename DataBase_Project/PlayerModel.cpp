@@ -4,19 +4,13 @@
 PlayerModel::PlayerModel() :
     mDatabaseManager(DatabaseManager::instance())
 {
-    m_model.clear();
-    QStringList headerLabels;
-    headerLabels << "Id" << "Score" << "Team" << "Age" << "Weight";
-    m_model.setHorizontalHeaderLabels(headerLabels);
+    LoadAll();
 }
 
 void PlayerModel::LoadAll()
 {
+    SetupModel();
 
-    m_model.clear();
-    QStringList headerLabels;
-    headerLabels << "Id" << "Score" << "Team" << "Age" << "Weight";
-    m_model.setHorizontalHeaderLabels(headerLabels);
     mPlayers = mDatabaseManager.mPlayerDao.Players();
 
     for(Player player : mPlayers)
@@ -26,4 +20,12 @@ void PlayerModel::LoadAll()
             << new QStandardItem(QString::number(player.GetAge())) << new QStandardItem(QString::number(player.GetWeight()));
         m_model.appendRow(row);
     }
+}
+
+void PlayerModel::SetupModel()
+{
+    m_model.clear();
+    QStringList headerLabels;
+    headerLabels << "Id" << "Score" << "Team" << "Age" << "Weight";
+    m_model.setHorizontalHeaderLabels(headerLabels);
 }

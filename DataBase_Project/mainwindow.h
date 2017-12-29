@@ -26,6 +26,7 @@ public:
 
 private slots:
     void onAddPlayer();
+    void onDeletePlayer();
     void onViewTriggered(QAction *action);
     void onRefresh();
 

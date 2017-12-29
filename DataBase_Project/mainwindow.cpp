@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->playersList->setModel(&mPlayerModel.m_model);
+    ui->playersList->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->playersList->setSelectionMode(QAbstractItemView::SingleSelection);
     mAddItemDialog = std::make_unique<AddItemDialog>(this);
     mViews = std::make_unique<QActionGroup>(this);
 
@@ -21,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     mViews->addAction(ui->actionViewEtape);
 
     connect(ui->addButton, &QPushButton::released, this, &MainWindow::onAddPlayer);
+    connect(ui->removeButton, &QPushButton::released, this, &MainWindow::onDeletePlayer);
     connect(ui->actionRefreshDatabase, &QAction::triggered, this, &MainWindow::onRefresh);
     connect(mViews.get(), &QActionGroup::triggered, this, &MainWindow::onViewTriggered);
 }
@@ -38,7 +41,24 @@ void MainWindow::onAddPlayer()
         std::unique_ptr<Player> newPlayer = mAddItemDialog->createPlayerFromInput();
         qDebug() << newPlayer->GetIdentifier();
         DatabaseManager::instance().mPlayerDao.AddPlayer(*newPlayer);
+        mPlayerModel.LoadAll();
     }
+}
+
+void MainWindow::onDeletePlayer()
+{
+    QItemSelectionModel *selModel = ui->playersList->selectionModel();
+    QModelIndexList selIndexes = selModel->selectedIndexes();
+
+    if(selIndexes.count() == 0)
+    {
+        return;
+    }
+
+    QModelIndex index = selIndexes[0];
+    int id = mPlayerModel.m_model.itemData(index).first().toInt();
+    DatabaseManager::instance().mPlayerDao.RemovePlayer(id);
+    mPlayerModel.LoadAll();
 }
 
 void MainWindow::onViewTriggered(QAction *action)
