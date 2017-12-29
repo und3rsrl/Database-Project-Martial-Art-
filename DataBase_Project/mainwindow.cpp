@@ -25,11 +25,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->categoryView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->categoryView->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    ui->playersList->horizontalHeader()->resizeSections(QHeaderView::Stretch);
+    //ui->playersList->horizontalHeader()->resizeSections(QHeaderView::Stretch);
     ui->clasamentList->horizontalHeader()->resizeSections(QHeaderView::Stretch);
-    ui->categoryView->horizontalHeader()->resizeSections(QHeaderView::Stretch);
-
-
+    //ui->categoryView->horizontalHeader()->resizeSections(QHeaderView::Stretch);
 
     mAddItemDialog = std::make_unique<AddItemDialog>(this);
     mViews = std::make_unique<QActionGroup>(this);
@@ -44,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->removeButton, &QPushButton::released, this, &MainWindow::onDeletePlayer);
     connect(ui->actionRefreshDatabase, &QAction::triggered, this, &MainWindow::onRefresh);
     connect(ui->addCategoryButton, &QPushButton::released, this, &MainWindow::onAddCategory);
+    connect(ui->removeCategoryButton, &QPushButton::released, this, &MainWindow::onDeleteCategory);
     connect(mViews.get(), &QActionGroup::triggered, this, &MainWindow::onViewTriggered);
 }
 

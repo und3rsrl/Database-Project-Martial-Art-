@@ -51,11 +51,7 @@ void CategoryDao::AddCategory(Category& category)
 void CategoryDao::RemoveCategory(int identifier)
 {
     QSqlQuery query(mDatabase);
-    query.prepare("DELETE"
-                  "FROM"
-                  "     Categories"
-                  "WHERE "
-                  "     id = (:id)");
+    query.prepare("DELETE FROM Categories WHERE id = (:id)");
     query.bindValue(":id", identifier);
     query.exec();
 }
