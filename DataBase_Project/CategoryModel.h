@@ -21,12 +21,10 @@ public:
 
     void LoadAll();
 
-    void SetupModel();
-
-
     QStandardItemModel m_model;
 private:
-    Ui::MainWindow *ui;
+    void SetupModel();
+
     DatabaseManager& mDatabaseManager;
     std::vector<Category> mCategories;
 

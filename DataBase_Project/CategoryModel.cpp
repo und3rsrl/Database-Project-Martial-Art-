@@ -3,8 +3,7 @@
 #include "ui_mainwindow.h"
 
 CategoryModel::CategoryModel() :
-    mDatabaseManager(DatabaseManager::instance()),
-    mCategories(mDatabaseManager.mCategoryDao.Categories())
+    mDatabaseManager(DatabaseManager::instance())
 {
     LoadAll();
 }
@@ -18,8 +17,9 @@ void CategoryModel::LoadAll()
     for(Category category : mCategories)
     {
         QList<QStandardItem*> row;
-        row << new QStandardItem(category.GetIdentifier()) << new QStandardItem(category.GetMinWeight()) << new QStandardItem(category.GetMaxWeight())
-            << new QStandardItem(category.GetMinAge()) << new QStandardItem(category.GetMaxAge());
+        row << new QStandardItem(QString::number(category.GetIdentifier())) << new QStandardItem(QString::number(category.GetMinWeight())) << new QStandardItem(QString::number(category.GetMaxWeight()))
+            << new QStandardItem(QString::number(category.GetMinAge())) << new QStandardItem(QString::number(category.GetMaxAge()));
+        m_model.appendRow(row);
     }
 }
 

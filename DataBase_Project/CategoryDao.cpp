@@ -45,7 +45,7 @@ void CategoryDao::AddCategory(Category& category)
         query.bindValue(":maxWeight", category.GetMaxWeight());
         query.bindValue(":minAge", category.GetMinAge());
         query.bindValue(":maxAge", category.GetMaxAge());
-        int x =query.exec();
+        query.exec();
 }
 
 void CategoryDao::RemoveCategory(int identifier)

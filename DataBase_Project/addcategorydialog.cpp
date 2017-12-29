@@ -15,7 +15,7 @@ AddCategoryDialog::AddCategoryDialog(QWidget *parent) :
 std::unique_ptr<Category> AddCategoryDialog::createCategoryFromInput()
 {
     return std::make_unique<Category>(ui->id->text().toInt(), ui->minWeight->text().toInt(), ui->maxWeight->text().toInt(),
-                                      ui->minWeight->text().toInt(), ui->maxWeight->text().toInt());
+                                      ui->minAge->text().toInt(), ui->maxAge->text().toInt());
 }
 
 AddCategoryDialog::~AddCategoryDialog()
