@@ -34,7 +34,8 @@ SOURCES += \
     PlayerModel.cpp \
     Category.cpp \
     CategoryDao.cpp \
-    CategoryModel.cpp
+    CategoryModel.cpp \
+    RankingModel.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -45,7 +46,8 @@ HEADERS += \
     PlayerModel.h \
     Category.h \
     CategoryDao.h \
-    CategoryModel.h
+    CategoryModel.h \
+    RankingModel.h
 
 FORMS += \
         mainwindow.ui \

@@ -18,10 +18,10 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="clasamentPage">
-       <widget class="QListView" name="clasamentList">
+       <widget class="QTableView" name="clasamentList">
         <property name="geometry">
          <rect>
           <x>10</x>

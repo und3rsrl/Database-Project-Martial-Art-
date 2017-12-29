@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "PlayerModel.h"
+#include "RankingModel.h"
 
 #include <QMainWindow>
 #include <memory>
@@ -35,6 +36,7 @@ private:
     std::unique_ptr<AddItemDialog> mAddItemDialog;
     std::unique_ptr<QActionGroup> mViews;
     PlayerModel mPlayerModel;
+    RankingModel mRankingModel;
 };
 
 #endif // MAINWINDOW_H

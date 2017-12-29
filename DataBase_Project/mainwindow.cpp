@@ -14,6 +14,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->playersList->setModel(&mPlayerModel.m_model);
     ui->playersList->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->playersList->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->clasamentList->setModel(&mRankingModel.m_model);
+    ui->clasamentList->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //ui->clasamentList->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+    //ui->clasamentList->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    ui->playersList->horizontalHeader()->resizeSections(QHeaderView::Stretch);
+    ui->clasamentList->horizontalHeader()->resizeSections(QHeaderView::Stretch);
     mAddItemDialog = std::make_unique<AddItemDialog>(this);
     mViews = std::make_unique<QActionGroup>(this);
 
@@ -93,6 +99,7 @@ void MainWindow::onRefresh()
     switch(ui->stackedWidget->currentIndex())
     {
     case 0:
+        mRankingModel.RefreshRanking();
         break;
     case 1:
        mPlayerModel.LoadAll();
