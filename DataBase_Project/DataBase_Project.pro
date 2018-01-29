@@ -36,7 +36,9 @@ SOURCES += \
     CategoryDao.cpp \
     CategoryModel.cpp \
     RankingModel.cpp \
-    addcategorydialog.cpp
+    addcategorydialog.cpp \
+    Stage.cpp \
+    Tour.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -49,7 +51,9 @@ HEADERS += \
     CategoryDao.h \
     CategoryModel.h \
     RankingModel.h \
-    addcategorydialog.h
+    addcategorydialog.h \
+    Stage.h \
+    Tour.h
 
 FORMS += \
         mainwindow.ui \

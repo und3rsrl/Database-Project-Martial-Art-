@@ -4,6 +4,7 @@
 #include "PlayerModel.h"
 #include "RankingModel.h"
 #include "CategoryModel.h"
+#include "Stage.h"
 
 #include <QMainWindow>
 #include <memory>
@@ -35,6 +36,7 @@ private slots:
     void onDeleteCategory();
     void onViewTriggered(QAction *action);
     void onRefresh();
+    void onSimulate();
 
 private:
     Ui::MainWindow *ui;
@@ -44,6 +46,7 @@ private:
     PlayerModel mPlayerModel;
     RankingModel mRankingModel;
     CategoryModel mCategoryModel;
+    Stage mStage;
 };
 
 #endif // MAINWINDOW_H

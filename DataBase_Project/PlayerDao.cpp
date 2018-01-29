@@ -51,12 +51,7 @@ void PlayerDao::AddPlayer(Player& player)
 void PlayerDao::UpdatePlayer(Player& player)
 {
     QSqlQuery query(mDatabase);
-        query.prepare("UPDATE "
-                      "     Players"
-                      "SET"
-                      "      score = (:score)"
-                      "WHERE"
-                      "      id = (:id)");
+        query.prepare("UPDATE Players SET score = :score WHERE id = :id");
         query.bindValue(":score", player.GetScore());
         query.bindValue(":id", player.GetIdentifier());
         query.exec();

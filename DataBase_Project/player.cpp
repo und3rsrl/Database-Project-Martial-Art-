@@ -9,6 +9,20 @@ Player::Player(int identifier, QString team, int score, int age, int weight)
     mWeight = weight;
 }
 
+Player::Player()
+{
+
+}
+
+//Player::Player(Player &other)
+//{
+//    mIdentifier = other.GetIdentifier();
+//    mScore = other.GetScore();
+//    mAge = other.GetAge();
+//    mWeight = other.GetWeight();
+//    mTeam = other.GetTeam();
+//
+
 void Player::SetScore(int points)
 {
     mScore += points;
@@ -18,6 +32,19 @@ int Player::GetScore()
 {
     return mScore;
 }
+
+//Player& Player::operator=(Player& rhs)
+//{
+
+//  if (this != &rhs) {
+ //     mIdentifier = rhs.GetIdentifier();
+  //    mScore = rhs.GetScore();
+ //     mAge = rhs.GetAge();
+ //     mWeight = rhs.GetWeight();
+ //     mTeam = rhs.GetTeam();
+//  }
+//   return *this;
+//}
 
 int Player::GetIdentifier()
 {

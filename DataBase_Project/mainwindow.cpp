@@ -9,7 +9,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    mStage(Stage())
 {
     ui->setupUi(this);
     ui->playersList->setModel(&mPlayerModel.m_model);
@@ -44,6 +45,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->addCategoryButton, &QPushButton::released, this, &MainWindow::onAddCategory);
     connect(ui->removeCategoryButton, &QPushButton::released, this, &MainWindow::onDeleteCategory);
     connect(mViews.get(), &QActionGroup::triggered, this, &MainWindow::onViewTriggered);
+    connect(ui->actionSimulare_lupte, &QAction::triggered, this, &MainWindow::onSimulate);
 }
 
 MainWindow::~MainWindow()
@@ -142,4 +144,9 @@ void MainWindow::onRefresh()
         mCategoryModel.LoadAll();
         break;
     }
+}
+
+void MainWindow::onSimulate()
+{
+    mStage.Simulate();
 }
