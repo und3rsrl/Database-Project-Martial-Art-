@@ -148,5 +148,6 @@ void MainWindow::onRefresh()
 
 void MainWindow::onSimulate()
 {
-    mStage.Simulate();
+    int winner = mStage.Simulate();
+    ui->statusBar->showMessage(QString::number(winner));
 }

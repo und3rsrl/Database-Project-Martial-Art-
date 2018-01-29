@@ -6,7 +6,7 @@ Stage::Stage() :
     mPoints = 10;
 }
 
-void Stage::Simulate()
+int Stage::Simulate()
 {
     mPlayers = mDatabaseManager.mPlayerDao.Players();
 
@@ -40,4 +40,5 @@ void Stage::Simulate()
         mPoints++;
         mTours.clear();
     }
+    return mPlayers.front().GetIdentifier();
 }

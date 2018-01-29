@@ -12,7 +12,7 @@ class Stage
 {
 public:
     Stage();
-    void Simulate();
+    int Simulate();
 
 private:
     int mPoints;
