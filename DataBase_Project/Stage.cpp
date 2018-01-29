@@ -1,14 +1,15 @@
 #include "Stage.h"
 
 Stage::Stage() :
-    mDatabaseManager(DatabaseManager::instance()),
-    mPlayers(mDatabaseManager.mPlayerDao.Players())
+    mDatabaseManager(DatabaseManager::instance())
 {
     mPoints = 10;
 }
 
 void Stage::Simulate()
 {
+    mPlayers = mDatabaseManager.mPlayerDao.Players();
+
     while(mPlayers.size() > 1)
     {
         qDebug("Ma distrez");
